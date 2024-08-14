@@ -2,11 +2,11 @@
 Este exemplo utiliza integração ESP IDF para conectar uma memória flash externa com base no exemplo:
 https://github.com/espressif/esp-idf/tree/master/examples/storage/ext_flash_fatfs
 
-Utilize os exemplos de leitura e gravação utilizando o sitema de arquivo LittleFS:
+Utilize os exemplos de leitura e gravação utilizando o sistema de arquivo LittleFS:
 https://github.com/lorol/LITTLEFS/blob/master/examples/LITTLEFS_test/LITTLEFS_test.ino
 
 COMPONENTES:
-Microcontrolador: ESP32 DevKit v1
+Microcontrolado: ESP32 DevKit v1
 Memória Flash: W25Q128FVSG
 
 PINOUT W25Q->ESP:
@@ -86,7 +86,7 @@ void setup() {
   Serial.println("Formatando partição com o sistema LittleFS");
   LittleFS.format();
 
-  // Memória flash externa inicializada
+  // Memória flash externa inicializado
   Serial.print("Memória flash externa e sistema de arquivos LittleFS iniciados com sucesso: ");
   Serial.print("Capacidade total: ");
   Serial.print(LittleFS.totalBytes());
@@ -99,7 +99,7 @@ void loop() {}
 
 static esp_flash_t* init_ext_flash(void) {
 
-  //Definicão da comunicação SPI e da memória flash
+  //Definição da comunicação SPI e da memória flash
   const spi_bus_config_t bus_config = {
     .mosi_io_num = PIN_MOSI,
     .miso_io_num = PIN_MISO,
@@ -115,16 +115,16 @@ static esp_flash_t* init_ext_flash(void) {
     .freq_mhz = ESP_FLASH_40MHZ,
   };
 
-  //Inicialização da comunicação SPI
+  // Inicialização da comunicação SPI
   Serial.println("Inicializando memória SPI flash externa. Pinos definidos:");
   Serial.println("MOSI: " + String(bus_config.mosi_io_num) + "  MISO: " + String(bus_config.miso_io_num) + "   SCLK: " + String(bus_config.sclk_io_num) + "   CS: " + String(device_config.cs_io_num));
   ESP_ERROR_CHECK(spi_bus_initialize(HOST_ID, &bus_config, SPI_DMA_CHAN));
 
-  //Adiciona memrória flash à comunicação SPI
+  // Adiciona memória flash à comunicação SPI
   esp_flash_t* ext_flash;
   ESP_ERROR_CHECK(spi_bus_add_flash_device(&ext_flash, &device_config));
 
-  // Inicialização da memrória flash
+  // Inicialização da memória flash
   esp_err_t err = esp_flash_init(ext_flash);
   if (err != ESP_OK) {
     Serial.println("Ocorreu uma falha na inicialização da memória flash externa: " + String(esp_err_to_name(err)));
