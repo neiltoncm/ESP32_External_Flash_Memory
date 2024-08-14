@@ -1,7 +1,10 @@
-Este exemplo utiliza integração ESP IDF para conectar uma memória flash externa com base no exemplo:\
+Este exemplo realiza integração ESP IDF para conectar memória flash externa com base no exemplo:\
 https://github.com/espressif/esp-idf/tree/master/examples/storage/ext_flash_fatfs
 
-Utilize os exemplos de leitura e gravação utilizando o sistema de arquivo LittleFS:\
+Após gravar 716800 Bytes utilizando sistema de arquivos FAT, houve falha total na leitura e gravação de dados.\
+Testando com o sistema LittleFS não houve problemas (o teste em questão se limita em aproximadamente 2290500 Bytes de gravação).
+
+Exemplos de leitura e gravação com o sistema de arquivo LittleFS:\
 https://github.com/lorol/LITTLEFS/blob/master/examples/LITTLEFS_test/LITTLEFS_test.ino
 
 COMPONENTES:\
