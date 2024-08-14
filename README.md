@@ -8,7 +8,7 @@ Exemplos de leitura e gravação com o sistema de arquivo LittleFS:\
 https://github.com/lorol/LITTLEFS/blob/master/examples/LITTLEFS_test/LITTLEFS_test.ino
 
 COMPONENTES:\
-Microcontrolado: ESP32 DevKit v1\
+Microcontrolador: ESP32 DevKit v1\
 Memória Flash: W25Q128FVSG
 
 PINOUT W25Q->ESP:\
